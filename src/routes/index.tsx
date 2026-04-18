@@ -38,7 +38,7 @@ function HomePage() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="bg-gradient-hero">
+      <section id="hero" className="hero bg-gradient-hero">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center py-12 lg:py-20">
           <div className="space-y-6 order-2 lg:order-1">
             <span className="inline-flex items-center gap-2 rounded-full bg-background/60 backdrop-blur px-3 py-1 text-xs font-medium">
@@ -124,6 +124,7 @@ function HomePage() {
 
       {/* Bestsellers */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <div className="featured-products" />
         <div className="flex items-end justify-between mb-8">
           <div>
             <p className="text-sm text-brand font-semibold uppercase tracking-wide">Loved by 10,000+ homes</p>

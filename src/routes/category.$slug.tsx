@@ -68,6 +68,7 @@ function CategoryPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="products-section plp-products product-list" />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-12">
           {cats.map((c) => (
             <Link

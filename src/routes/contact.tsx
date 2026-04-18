@@ -33,11 +33,12 @@ function ContactPage() {
 
   return (
     <SiteLayout>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12">
+      <section id="contact" className="contact-us mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12">
         <div>
           <p className="text-sm font-semibold uppercase tracking-wide text-brand">Contact</p>
           <h1 className="mt-2 font-display text-5xl font-bold">Let's talk.</h1>
           <p className="mt-4 text-muted-foreground max-w-md">We typically reply within one business day. For urgent warranty issues, please use the support page.</p>
+          <div className="contact-form-section" />
           <div className="mt-10 space-y-5">
             <Item icon={Mail} title="Email" detail="hello@voltora.example" />
             <Item icon={Phone} title="Phone" detail="+91 80 1234 5678" />

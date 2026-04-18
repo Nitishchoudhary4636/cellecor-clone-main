@@ -67,6 +67,7 @@ function ShopPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="products-section plp-products product-list" />
         <div className="flex flex-col lg:flex-row gap-6">
           <aside className="lg:w-56 shrink-0">
             <h3 className="font-semibold text-sm mb-3">Categories</h3>

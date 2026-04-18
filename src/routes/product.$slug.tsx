@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { createElement, useEffect, useMemo, useState } from "react";
 import { Heart, Minus, Plus, ShieldCheck, Star, Truck } from "lucide-react";
 import { toast } from "sonner";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -166,6 +166,7 @@ function ProductPage() {
 
       {related.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
+          {createElement("pdp_recommendation", { id: "pdp_recommendation", className: "pdp_recommendation" })}
           <h2 className="font-display text-3xl font-bold mb-8">You may also like</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {related.map((p) => <ProductCard key={p.id} product={p} />)}

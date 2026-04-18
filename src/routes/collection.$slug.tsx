@@ -67,6 +67,7 @@ function CollectionPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="products-section plp-products product-list" />
         {items.length === 0 ? (
           <p className="text-muted-foreground py-12 text-center">No products in this collection yet.</p>
         ) : (
