@@ -45,6 +45,7 @@ function ContactPage() {
           </div>
         </div>
         <form
+          id="authForm"
           onSubmit={(e) => {
             e.preventDefault();
             setSent(true);
@@ -53,11 +54,16 @@ function ContactPage() {
           className="rounded-3xl bg-secondary/40 p-8 space-y-4"
         >
           <div className="grid sm:grid-cols-2 gap-4">
-            <div><Label htmlFor="cn">Name</Label><Input id="cn" required className="mt-1" /></div>
-            <div><Label htmlFor="ce">Email</Label><Input id="ce" type="email" required className="mt-1" /></div>
+            <div><Label htmlFor="name">Name</Label><Input id="name" required className="mt-1" /></div>
+            <div><Label htmlFor="email">Email</Label><Input id="email" type="email" required className="mt-1" /></div>
           </div>
+          <div><Label htmlFor="phone">Phone</Label><Input id="phone" type="tel" className="mt-1" /></div>
           <div><Label htmlFor="cs">Subject</Label><Input id="cs" required className="mt-1" /></div>
           <div><Label htmlFor="cm">Message</Label><Textarea id="cm" required rows={5} className="mt-1" /></div>
+          <label htmlFor="chkOffersChecked" className="flex items-center gap-2 text-sm text-muted-foreground">
+            <input id="chkOffersChecked" type="checkbox" />
+            Receive offers and product updates
+          </label>
           <Button type="submit" size="lg" className="w-full rounded-full">{sent ? "Message sent ✓" : "Send message"}</Button>
         </form>
       </section>

@@ -130,7 +130,7 @@ function ProductPage() {
             </div>
             <Button
               size="lg"
-              className="rounded-full flex-1 sm:flex-none sm:px-10"
+              className="rounded-full flex-1 sm:flex-none sm:px-10 btn-large"
               onClick={() => {
                 addToCart(product.id, qty);
                 toast.success(`Added ${qty} × ${product.name} to cart`);

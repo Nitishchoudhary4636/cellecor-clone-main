@@ -19,6 +19,7 @@ function CheckoutPage() {
   const navigate = useNavigate();
   const [success, setSuccess] = useState<string | null>(null);
   const [shipping, setShipping] = useState({ name: "", address: "", city: "", pincode: "", phone: "" });
+  const [stateName, setStateName] = useState("");
   const productMap = new Map(products.map((p) => [p.id, p]));
   const shippingFee = cartTotal > 999 ? 0 : 99;
   const mcpItems = useMemo(
@@ -98,12 +99,13 @@ function CheckoutPage() {
             <fieldset className="space-y-4">
               <legend className="font-semibold text-lg mb-2">Shipping address</legend>
               <div className="grid sm:grid-cols-2 gap-4">
-                <Field id="name" label="Full name" value={shipping.name} onChange={(v) => setShipping({ ...shipping, name: v })} />
+                <Field id="fullName" label="Full name" value={shipping.name} onChange={(v) => setShipping({ ...shipping, name: v })} />
                 <Field id="phone" label="Phone" value={shipping.phone} onChange={(v) => setShipping({ ...shipping, phone: v })} />
               </div>
               <Field id="address" label="Address" value={shipping.address} onChange={(v) => setShipping({ ...shipping, address: v })} />
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field id="city" label="City" value={shipping.city} onChange={(v) => setShipping({ ...shipping, city: v })} />
+                <Field id="state" label="State" value={stateName} onChange={setStateName} />
                 <Field id="pincode" label="Pincode" value={shipping.pincode} onChange={(v) => setShipping({ ...shipping, pincode: v })} />
               </div>
             </fieldset>
@@ -140,7 +142,7 @@ function CheckoutPage() {
               <div className="flex justify-between"><span>Shipping</span><span>{shippingFee === 0 ? "Free" : formatPrice(shippingFee)}</span></div>
               <div className="flex justify-between font-semibold text-base pt-2 border-t border-border"><span>Total</span><span>{formatPrice(cartTotal + shippingFee)}</span></div>
             </div>
-            <Button type="submit" size="lg" className="w-full rounded-full">Place order</Button>
+            <Button type="submit" size="lg" className="w-full rounded-full checkout-btn">Place order</Button>
           </aside>
         </form>
       </section>
