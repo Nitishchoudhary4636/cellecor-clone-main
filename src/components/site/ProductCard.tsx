@@ -12,7 +12,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="group flex flex-col">
       <div className="relative aspect-square overflow-hidden rounded-2xl bg-secondary">
-        <Link to="/product/$slug" params={{ slug: product.slug }}>
+        <Link to="/product/$slug" params={{ slug: product.slug }} reloadDocument>
           <img
             src={product.image}
             alt={product.name}
@@ -39,7 +39,7 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
       </div>
       <div className="mt-3 space-y-1">
-        <Link to="/product/$slug" params={{ slug: product.slug }} className="block font-medium text-sm line-clamp-2 hover:text-brand transition-colors">
+        <Link to="/product/$slug" params={{ slug: product.slug }} reloadDocument className="block font-medium text-sm line-clamp-2 hover:text-brand transition-colors">
           {product.name}
         </Link>
         <div className="flex items-center gap-1 text-xs text-muted-foreground">
