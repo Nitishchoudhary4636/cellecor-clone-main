@@ -1,11 +1,12 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Heart, Package, LogOut } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useStore } from "@/lib/store";
+import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/account")({
   head: () => ({ meta: [{ title: "My account — Voltora" }] }),
@@ -19,6 +20,14 @@ function AccountPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    setMCPData({
+      pageType: "login",
+      pageName: "Login",
+      currency: "INR",
+    });
+  }, []);
+
   if (!user) {
     return (
       <SiteLayout>
@@ -26,6 +35,7 @@ function AccountPage() {
           <h1 className="font-display text-4xl font-bold">Welcome back</h1>
           <p className="mt-2 text-muted-foreground">Sign in to track orders and manage your wishlist.</p>
           <form
+            id="authForm"
             onSubmit={(e) => {
               e.preventDefault();
               const r = login(email, password);
@@ -34,6 +44,9 @@ function AccountPage() {
             }}
             className="mt-8 space-y-4"
           >
+            <input id="name" type="hidden" value="" readOnly />
+            <input id="phone" type="hidden" value="" readOnly />
+            <input id="chkOffersChecked" type="checkbox" className="hidden" readOnly />
             <div>
               <Label htmlFor="email">Email</Label>
               <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1" />

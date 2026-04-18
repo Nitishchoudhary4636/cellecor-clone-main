@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useMemo } from "react";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/lib/store";
 import { findProduct, formatPrice, products } from "@/data/products";
+import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/cart")({
   head: () => ({ meta: [{ title: "Your cart — Voltora" }, { name: "description", content: "Review the items in your shopping cart." }] }),
@@ -14,6 +16,37 @@ function CartPage() {
   const { cart, updateQuantity, removeFromCart, cartTotal, clearCart } = useStore();
   const productMap = new Map(products.map((p) => [p.id, p]));
   const shipping = cartTotal > 999 || cartTotal === 0 ? 0 : 99;
+  const mcpItems = useMemo(
+    () =>
+      cart
+        .map((item) => {
+          const p = productMap.get(item.productId);
+          if (!p) return null;
+
+          return {
+            item_id: p.id,
+            id: p.id,
+            item_sku: p.id,
+            item_name: p.name,
+            name: p.name,
+            price: p.price,
+            quantity: item.quantity,
+            category: p.category,
+            imageUrl: p.image,
+            url: `/product/${p.slug}`,
+          };
+        })
+        .filter(Boolean),
+    [cart, productMap],
+  );
+
+  useEffect(() => {
+    setMCPData({
+      pageType: "Cart",
+      currency: "INR",
+      items: mcpItems,
+    });
+  }, [mcpItems]);
 
   if (cart.length === 0) {
     return (

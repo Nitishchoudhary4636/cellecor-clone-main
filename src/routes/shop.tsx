@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProductCard } from "@/components/site/ProductCard";
 import { products, categories } from "@/data/products";
 import { Input } from "@/components/ui/input";
+import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -19,6 +20,15 @@ export const Route = createFileRoute("/shop")({
 function ShopPage() {
   const [q, setQ] = useState("");
   const [sort, setSort] = useState<"featured" | "price-low" | "price-high" | "rating">("featured");
+
+  useEffect(() => {
+    setMCPData({
+      pageName: "Category",
+      itemListId: "all-products",
+      itemListName: "All products",
+      currency: "INR",
+    });
+  }, []);
 
   const filtered = useMemo(() => {
     let list = products.filter((p) => p.name.toLowerCase().includes(q.toLowerCase()));

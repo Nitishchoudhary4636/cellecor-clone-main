@@ -26,7 +26,7 @@ export function Header() {
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
 
-          <Link to="/" className="flex items-center">
+          <Link to="/" reloadDocument className="flex items-center">
             <Logo />
           </Link>
 
@@ -38,6 +38,7 @@ export function Header() {
                 activeProps={{ className: "text-foreground" }}
                 inactiveProps={{ className: "text-muted-foreground hover:text-foreground" }}
                 className="transition-colors"
+                reloadDocument
               >
                 {l.label}
               </Link>
@@ -45,13 +46,13 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-1">
-            <Link to="/shop" className="p-2 hover:text-brand transition-colors" aria-label="Search">
+            <Link to="/shop" reloadDocument className="p-2 hover:text-brand transition-colors" aria-label="Search">
               <Search className="size-5" />
             </Link>
-            <Link to="/account" className="p-2 hover:text-brand transition-colors" aria-label="Account">
+            <Link to="/account" reloadDocument className="p-2 hover:text-brand transition-colors" aria-label="Account">
               <User className="size-5" />
             </Link>
-            <Link to="/wishlist" className="relative p-2 hover:text-brand transition-colors" aria-label="Wishlist">
+            <Link to="/wishlist" reloadDocument className="relative p-2 hover:text-brand transition-colors" aria-label="Wishlist">
               <Heart className="size-5" />
               {wishlist.length > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 size-4 rounded-full bg-brand text-brand-foreground text-[10px] font-bold flex items-center justify-center">
@@ -59,7 +60,7 @@ export function Header() {
                 </span>
               )}
             </Link>
-            <Link to="/cart" className="relative p-2 hover:text-brand transition-colors" aria-label="Cart">
+            <Link to="/cart" reloadDocument className="relative p-2 hover:text-brand transition-colors" aria-label="Cart">
               <ShoppingBag className="size-5" />
               <span className="absolute -top-0.5 -right-0.5 size-4 rounded-full bg-brand text-brand-foreground text-[10px] font-bold flex items-center justify-center">
                 {cartCount}
@@ -71,7 +72,7 @@ export function Header() {
         {open && (
           <nav className="lg:hidden py-4 border-t border-border space-y-1">
             {navLinks.map((l) => (
-              <Link key={l.to} to={l.to} onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">
+              <Link key={l.to} to={l.to} reloadDocument onClick={() => setOpen(false)} className="block py-2 text-sm font-medium">
                 {l.label}
               </Link>
             ))}

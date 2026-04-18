@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Truck, ShieldCheck, RotateCcw } from "lucide-react";
+import { useEffect } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Button } from "@/components/ui/button";
 import { categories, products, formatPrice } from "@/data/products";
+import { setMCPData } from "@/lib/mcpDataLayer";
 import heroFan from "@/assets/hero-fan.jpg";
 import heroAirfryer from "@/assets/hero-airfryer.jpg";
 import heroMixer from "@/assets/hero-mixer.jpg";
@@ -21,6 +23,14 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  useEffect(() => {
+    setMCPData({
+      pageName: "Home",
+      pageType: "Home",
+      currency: "INR",
+    });
+  }, []);
+
   const bestsellers = products.filter((p) => p.bestseller).slice(0, 4);
   const trending = products.filter((p) => p.trending).slice(0, 6);
   const dailyDeals = [...products].sort((a, b) => b.mrp - b.price - (a.mrp - a.price)).slice(0, 6);

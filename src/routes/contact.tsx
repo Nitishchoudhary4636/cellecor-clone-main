@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -21,6 +22,14 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+
+  useEffect(() => {
+    setMCPData({
+      pageType: "Contact",
+      pageName: "Contact",
+      currency: "INR",
+    });
+  }, []);
 
   return (
     <SiteLayout>

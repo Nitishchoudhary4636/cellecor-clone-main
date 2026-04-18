@@ -1,7 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProductCard } from "@/components/site/ProductCard";
 import { categories, productsBySection, sections, type SectionSlug } from "@/data/products";
+import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/category/$slug")({
   loader: ({ params }) => {
@@ -27,6 +29,15 @@ function CategoryPage() {
   const meta = sections[slug];
   const items = productsBySection(slug);
   const cats = categories.filter((c) => c.section === slug);
+
+  useEffect(() => {
+    setMCPData({
+      pageName: "Category",
+      itemListId: slug,
+      itemListName: meta.label,
+      currency: "INR",
+    });
+  }, [meta.label, slug]);
 
   return (
     <SiteLayout>

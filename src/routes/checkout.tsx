@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useStore } from "@/lib/store";
 import { formatPrice, products } from "@/data/products";
+import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({ meta: [{ title: "Checkout — Voltora" }] }),
@@ -20,6 +21,37 @@ function CheckoutPage() {
   const [shipping, setShipping] = useState({ name: "", address: "", city: "", pincode: "", phone: "" });
   const productMap = new Map(products.map((p) => [p.id, p]));
   const shippingFee = cartTotal > 999 ? 0 : 99;
+  const mcpItems = useMemo(
+    () =>
+      cart
+        .map((item) => {
+          const p = productMap.get(item.productId);
+          if (!p) return null;
+
+          return {
+            item_id: p.id,
+            id: p.id,
+            item_sku: p.id,
+            item_name: p.name,
+            name: p.name,
+            price: p.price,
+            quantity: item.quantity,
+            category: p.category,
+            imageUrl: p.image,
+            url: `/product/${p.slug}`,
+          };
+        })
+        .filter(Boolean),
+    [cart, productMap],
+  );
+
+  useEffect(() => {
+    setMCPData({
+      pageType: "view_checkout",
+      currency: "INR",
+      items: mcpItems,
+    });
+  }, [mcpItems]);
 
   if (cart.length === 0 && !success) {
     return (

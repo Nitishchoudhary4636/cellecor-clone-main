@@ -71,7 +71,7 @@ function FooterCol({ title, links }: { title: string; links: { to: string; label
       <ul className="space-y-2.5 text-sm text-muted-foreground">
         {links.map((l) => (
           <li key={l.to}>
-            <Link to={l.to} className="hover:text-foreground transition-colors">
+            <Link to={l.to} reloadDocument className="hover:text-foreground transition-colors">
               {l.label}
             </Link>
           </li>

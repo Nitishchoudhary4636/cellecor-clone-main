@@ -1,7 +1,9 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProductCard } from "@/components/site/ProductCard";
 import { categories, productsByCategory, type CategorySlug } from "@/data/products";
+import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/collection/$slug")({
   loader: ({ params }) => {
@@ -21,6 +23,15 @@ export const Route = createFileRoute("/collection/$slug")({
 function CollectionPage() {
   const { cat } = Route.useLoaderData();
   const items = productsByCategory(cat.slug as CategorySlug);
+
+  useEffect(() => {
+    setMCPData({
+      pageName: "Category",
+      itemListId: cat.slug,
+      itemListName: cat.name,
+      currency: "INR",
+    });
+  }, [cat.name, cat.slug]);
 
   return (
     <SiteLayout>

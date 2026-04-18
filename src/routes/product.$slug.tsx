@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Heart, Minus, Plus, ShieldCheck, Star, Truck } from "lucide-react";
 import { toast } from "sonner";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -7,6 +7,7 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { Button } from "@/components/ui/button";
 import { findProduct, formatPrice, products } from "@/data/products";
 import { useStore } from "@/lib/store";
+import { setMCPData, toAbsoluteUrl } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/product/$slug")({
   loader: ({ params }) => {
@@ -34,6 +35,29 @@ function ProductPage() {
   const wished = isWishlisted(product.id);
   const discount = Math.round(((product.mrp - product.price) / product.mrp) * 100);
   const related = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 4);
+  const productUrl = useMemo(() => {
+    if (typeof window === "undefined") return `/product/${product.slug}`;
+    return `${window.location.origin}/product/${product.slug}`;
+  }, [product.slug]);
+
+  useEffect(() => {
+    setMCPData({
+      pageType: "Product",
+      currency: "INR",
+      Item: {
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        imageUrl: toAbsoluteUrl(product.image),
+        url: productUrl,
+        price: product.price,
+        availability: "in_stock",
+        category: product.category,
+        color: product.colors ?? [],
+        size: [],
+      },
+    });
+  }, [product, productUrl]);
 
   return (
     <SiteLayout>
