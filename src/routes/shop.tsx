@@ -21,15 +21,6 @@ function ShopPage() {
   const [q, setQ] = useState("");
   const [sort, setSort] = useState<"featured" | "price-low" | "price-high" | "rating">("featured");
 
-  useEffect(() => {
-    setMCPData({
-      pageName: "Category",
-      itemListId: "all-products",
-      itemListName: "All products",
-      currency: "INR",
-    });
-  }, []);
-
   const filtered = useMemo(() => {
     let list = products.filter((p) => p.name.toLowerCase().includes(q.toLowerCase()));
     if (sort === "price-low") list = [...list].sort((a, b) => a.price - b.price);
@@ -37,6 +28,34 @@ function ShopPage() {
     if (sort === "rating") list = [...list].sort((a, b) => b.rating - a.rating);
     return list;
   }, [q, sort]);
+
+  const mcpItems = useMemo(
+    () =>
+      filtered.map((p, index) => ({
+        item_id: p.id,
+        id: p.id,
+        item_sku: p.id,
+        item_name: p.name,
+        name: p.name,
+        price: p.price,
+        quantity: 1,
+        category: p.category,
+        imageUrl: p.image,
+        url: `/product/${p.slug}`,
+        index,
+      })),
+    [filtered],
+  );
+
+  useEffect(() => {
+    setMCPData({
+      pageName: "Category",
+      itemListId: "all-products",
+      itemListName: "All products",
+      currency: "INR",
+      items: mcpItems,
+    });
+  }, [mcpItems]);
 
   return (
     <SiteLayout>
