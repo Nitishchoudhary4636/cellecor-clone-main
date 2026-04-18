@@ -48,6 +48,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script
+          type="text/javascript"
+          src="//cdn.evgnet.com/beacon/socialbeatdigitalmarketing/cellecor_demo/scripts/evergage.min.js"
+        />
         <HeadContent />
       </head>
       <body>
