@@ -34,7 +34,14 @@ function ProductPage() {
   const [color, setColor] = useState(product.colors?.[0]);
   const wished = isWishlisted(product.id);
   const discount = Math.round(((product.mrp - product.price) / product.mrp) * 100);
-  const related = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 4);
+  const related = useMemo(() => {
+    const sameCategory = products.filter((p) => p.category === product.category && p.id !== product.id);
+    const fallback = products
+      .filter((p) => p.id !== product.id && p.category !== product.category)
+      .sort((a, b) => Number(Boolean(b.trending || b.bestseller)) - Number(Boolean(a.trending || a.bestseller)));
+
+    return [...sameCategory, ...fallback].slice(0, 4);
+  }, [product.id, product.category]);
   const productUrl = useMemo(() => {
     if (typeof window === "undefined") return `/product/${product.slug}`;
     return `${window.location.origin}/product/${product.slug}`;
@@ -164,15 +171,17 @@ function ProductPage() {
         </div>
       </section>
 
-      {related.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
-          {createElement("pdp_recommendation", { id: "pdp_recommendation", className: "pdp_recommendation" })}
-          <h2 className="font-display text-3xl font-bold mb-8">You may also like</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {related.map((p) => <ProductCard key={p.id} product={p} />)}
-          </div>
-        </section>
-      )}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 border-t border-border">
+        {createElement("pdp_recommendation", { id: "pdp_recommendation", className: "pdp_recommendation" })}
+        {related.length > 0 && (
+          <>
+            <h2 className="font-display text-3xl font-bold mb-8">You may also like</h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {related.map((p) => <ProductCard key={p.id} product={p} />)}
+            </div>
+          </>
+        )}
+      </section>
     </SiteLayout>
   );
 }
