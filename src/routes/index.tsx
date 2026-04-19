@@ -32,7 +32,6 @@ function HomePage() {
   }, []);
 
   const bestsellers = products.filter((p) => p.bestseller).slice(0, 4);
-  const trending = products.filter((p) => p.trending).slice(0, 6);
   const dailyDeals = [...products].sort((a, b) => b.mrp - b.price - (a.mrp - a.price)).slice(0, 6);
 
   return (
@@ -155,17 +154,6 @@ function HomePage() {
             <p className="text-sm mt-2 max-w-sm">Pure-copper motors. Stainless steel jars. 2-year warranty across the board.</p>
           </div>
         </Link>
-      </section>
-
-      {/* Trending */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex items-end justify-between mb-8">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">Trending now</h2>
-          <Link to="/shop" className="text-sm font-medium hover:text-brand">More →</Link>
-        </div>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-          {trending.map((p) => <ProductCard key={p.id} product={p} />)}
-        </div>
       </section>
 
       {/* Daily deals */}
