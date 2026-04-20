@@ -69,9 +69,9 @@ function HomePage() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section id="hero" className="hero bg-gradient-hero">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
-          <div className="swiper rounded-3xl overflow-hidden shadow-soft bg-black/5">
+      <section id="hero" className="hero">
+        <div className="w-full">
+          <div className="swiper w-full overflow-hidden">
             <div className="aspect-[1880/720] w-full">
               <div
                 className="swiper-wrapper flex h-full transition-transform duration-700 ease-out"
