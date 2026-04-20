@@ -12,9 +12,9 @@ import { setMCPData } from "@/lib/mcpDataLayer";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact us — Voltora" },
-      { name: "description", content: "Get in touch with the Voltora team. We typically reply within one business day." },
-      { property: "og:title", content: "Contact Voltora" },
+      { title: "Contact us â€” Cellecor" },
+      { name: "description", content: "Get in touch with the Cellecor team. We typically reply within one business day." },
+      { property: "og:title", content: "Contact Cellecor" },
     ],
   }),
   component: ContactPage,
@@ -40,7 +40,7 @@ function ContactPage() {
           <p className="mt-4 text-muted-foreground max-w-md">We typically reply within one business day. For urgent warranty issues, please use the support page.</p>
           <div className="contact-form-section" />
           <div className="mt-10 space-y-5">
-            <Item icon={Mail} title="Email" detail="hello@voltora.example" />
+            <Item icon={Mail} title="Email" detail="hello@cellecor.example" />
             <Item icon={Phone} title="Phone" detail="+91 80 1234 5678" />
             <Item icon={MapPin} title="Headquarters" detail="3rd Floor, Indiranagar, Bengaluru 560038" />
           </div>
@@ -65,7 +65,7 @@ function ContactPage() {
             <input id="chkOffersChecked" type="checkbox" />
             Receive offers and product updates
           </label>
-          <Button type="submit" size="lg" className="w-full rounded-full">{sent ? "Message sent ✓" : "Send message"}</Button>
+          <Button type="submit" size="lg" className="w-full rounded-full">{sent ? "Message sent âœ“" : "Send message"}</Button>
         </form>
       </section>
     </SiteLayout>

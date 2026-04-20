@@ -4,9 +4,9 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Voltora — Our story" },
-      { name: "description", content: "Voltora is a Bengaluru-based brand making everyday gadgets and appliances that look great and last for years." },
-      { property: "og:title", content: "About Voltora" },
+      { title: "About Cellecor â€” Our story" },
+      { name: "description", content: "Cellecor is a Bengaluru-based brand making everyday gadgets and appliances that look great and last for years." },
+      { property: "og:title", content: "About Cellecor" },
     ],
   }),
   component: AboutPage,
@@ -23,10 +23,10 @@ function AboutPage() {
       </section>
       <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16 prose prose-neutral">
         <p className="text-lg text-muted-foreground">
-          Voltora started in 2018 with a simple idea — that great gadgets shouldn't cost a fortune and shouldn't look out of place in your home.
+          Cellecor started in 2018 with a simple idea â€” that great gadgets shouldn't cost a fortune and shouldn't look out of place in your home.
         </p>
         <p className="text-muted-foreground">
-          Today, we design and manufacture a full range of consumer electronics and home appliances — from smartwatches and earbuds to mixers,
+          Today, we design and manufacture a full range of consumer electronics and home appliances â€” from smartwatches and earbuds to mixers,
           fans, and air fryers. Every product goes through 200+ quality checks before it reaches you.
         </p>
         <div className="grid sm:grid-cols-3 gap-6 mt-12 not-prose">

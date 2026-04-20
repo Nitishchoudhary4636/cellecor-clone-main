@@ -8,7 +8,7 @@ import { useStore } from "@/lib/store";
 import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/signup")({
-  head: () => ({ meta: [{ title: "Create account — Voltora" }] }),
+  head: () => ({ meta: [{ title: "Create account â€” Cellecor" }] }),
   component: SignupPage,
 });
 
@@ -34,7 +34,7 @@ function SignupPage() {
     <SiteLayout>
       <section className="mx-auto max-w-md px-4 py-16">
         <h1 className="font-display text-4xl font-bold">Create account</h1>
-        <p className="mt-2 text-muted-foreground">Join Voltora and start saving today.</p>
+        <p className="mt-2 text-muted-foreground">Join Cellecor and start saving today.</p>
         <form
           id="authForm"
           onSubmit={(e) => {

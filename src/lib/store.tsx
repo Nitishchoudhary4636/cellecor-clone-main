@@ -33,11 +33,11 @@ type StoreCtx = {
 const Ctx = createContext<StoreCtx | null>(null);
 
 const KEYS = {
-  cart: "voltora.cart",
-  wishlist: "voltora.wishlist",
-  orders: "voltora.orders",
-  user: "voltora.user",
-  users: "voltora.users",
+  cart: "cellecor.cart",
+  wishlist: "cellecor.wishlist",
+  orders: "cellecor.orders",
+  user: "cellecor.user",
+  users: "cellecor.users",
 };
 
 function load<T>(k: string, fallback: T): T {

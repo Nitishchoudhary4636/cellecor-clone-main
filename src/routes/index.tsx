@@ -13,10 +13,10 @@ import heroMixer from "@/assets/hero-mixer.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Voltora — Smart Gadgets & Home Appliances" },
-      { name: "description", content: "Discover Voltora's range of smart gadgets, kitchen tools, and home appliances. Designed in India, built to last." },
-      { property: "og:title", content: "Voltora — Smart Gadgets & Home Appliances" },
-      { property: "og:description", content: "Discover Voltora's range of smart gadgets, kitchen tools, and home appliances." },
+      { title: "Cellecor â€” Smart Gadgets & Home Appliances" },
+      { name: "description", content: "Discover Cellecor's range of smart gadgets, kitchen tools, and home appliances. Designed in India, built to last." },
+      { property: "og:title", content: "Cellecor â€” Smart Gadgets & Home Appliances" },
+      { property: "og:description", content: "Discover Cellecor's range of smart gadgets, kitchen tools, and home appliances." },
     ],
   }),
   component: HomePage,
@@ -41,14 +41,14 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center py-12 lg:py-20">
           <div className="space-y-6 order-2 lg:order-1">
             <span className="inline-flex items-center gap-2 rounded-full bg-background/60 backdrop-blur px-3 py-1 text-xs font-medium">
-              ✦ New season · 2025 collection
+              âœ¦ New season Â· 2025 collection
             </span>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.95] text-balance">
               2D rotation. <br />
               <span className="italic text-brand-deep">Even airflow.</span>
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground max-w-md">
-              The RetroSpin pedestal fan blends vintage looks with serious cooling. 120° smooth rotation, 1300 RPM aluminium motor.
+              The RetroSpin pedestal fan blends vintage looks with serious cooling. 120Â° smooth rotation, 1300 RPM aluminium motor.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Button asChild size="lg" className="rounded-full">
@@ -74,7 +74,7 @@ function HomePage() {
       <section className="border-y border-border bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-6 py-8">
           {[
-            { icon: Truck, title: "Free shipping", sub: "On orders over ₹999" },
+            { icon: Truck, title: "Free shipping", sub: "On orders over â‚¹999" },
             { icon: ShieldCheck, title: "2-year warranty", sub: "On all appliances" },
             { icon: RotateCcw, title: "7-day returns", sub: "Hassle-free" },
             { icon: Award, title: "Made in India", sub: "Designed in Bengaluru" },
@@ -96,7 +96,7 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-end justify-between mb-8">
           <h2 className="font-display text-3xl sm:text-4xl font-bold">Shop by category</h2>
-          <Link to="/shop" className="text-sm font-medium hover:text-brand">View all →</Link>
+          <Link to="/shop" className="text-sm font-medium hover:text-brand">View all â†’</Link>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {categories.slice(0, 10).map((cat) => (
@@ -129,7 +129,7 @@ function HomePage() {
             <p className="text-sm text-brand font-semibold uppercase tracking-wide">Loved by 10,000+ homes</p>
             <h2 className="font-display text-3xl sm:text-4xl font-bold mt-1">Best sellers</h2>
           </div>
-          <Link to="/shop" className="text-sm font-medium hover:text-brand">Shop all →</Link>
+          <Link to="/shop" className="text-sm font-medium hover:text-brand">Shop all â†’</Link>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {bestsellers.map((p) => <ProductCard key={p.id} product={p} />)}
@@ -175,10 +175,10 @@ function HomePage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-foreground text-background rounded-3xl p-10 sm:p-16 text-center">
           <h2 className="font-display text-3xl sm:text-5xl font-bold max-w-2xl mx-auto text-balance">
-            Get ₹500 off your first order.
+            Get â‚¹500 off your first order.
           </h2>
           <p className="mt-3 text-background/70 max-w-md mx-auto">
-            Drop your email — we'll send a code straight to your inbox. No spam, ever.
+            Drop your email â€” we'll send a code straight to your inbox. No spam, ever.
           </p>
           <form
             onSubmit={(e) => e.preventDefault()}

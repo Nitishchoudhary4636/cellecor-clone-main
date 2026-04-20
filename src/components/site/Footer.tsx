@@ -10,7 +10,7 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <Logo />
             <p className="text-sm text-muted-foreground max-w-sm">
-              Voltora makes everyday gadgets and appliances that look great on your shelf and last for years.
+              Cellecor makes everyday gadgets and appliances that look great on your shelf and last for years.
               Designed in Bengaluru, made for India.
             </p>
             <div className="flex gap-3 pt-2">
@@ -56,8 +56,8 @@ export function Footer() {
           />
         </div>
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row gap-4 justify-between text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Voltora Gadgets Ltd. All rights reserved.</p>
-          <p>An inspired demo build — not affiliated with any real brand.</p>
+          <p>Â© {new Date().getFullYear()} Cellecor Gadgets Ltd. All rights reserved.</p>
+          <p>An inspired demo build â€” not affiliated with any real brand.</p>
         </div>
       </div>
     </footer>

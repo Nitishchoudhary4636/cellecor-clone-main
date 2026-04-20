@@ -5,7 +5,7 @@ import { useStore } from "@/lib/store";
 import { formatPrice } from "@/data/products";
 
 export const Route = createFileRoute("/orders")({
-  head: () => ({ meta: [{ title: "Your orders — Voltora" }] }),
+  head: () => ({ meta: [{ title: "Your orders â€” Cellecor" }] }),
   component: OrdersPage,
 });
 
@@ -50,7 +50,7 @@ function OrdersPage() {
                       </div>
                       <div className="flex-1">
                         <div className="font-medium">{it.name}</div>
-                        <div className="text-xs text-muted-foreground">Qty {it.quantity} · {formatPrice(it.price)}</div>
+                        <div className="text-xs text-muted-foreground">Qty {it.quantity} Â· {formatPrice(it.price)}</div>
                       </div>
                     </div>
                   ))}

@@ -13,8 +13,8 @@ export const Route = createFileRoute("/collection/$slug")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: loaderData ? `${loaderData.cat.name} — Voltora` : "Collection — Voltora" },
-      { name: "description", content: loaderData ? `Shop ${loaderData.cat.name} from Voltora.` : "" },
+      { title: loaderData ? `${loaderData.cat.name} â€” Cellecor` : "Collection â€” Cellecor" },
+      { name: "description", content: loaderData ? `Shop ${loaderData.cat.name} from Cellecor.` : "" },
     ],
   }),
   component: CollectionPage,
