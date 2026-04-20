@@ -1,12 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Award, Truck, ShieldCheck, RotateCcw } from "lucide-react";
+import { Award, Truck, ShieldCheck, RotateCcw } from "lucide-react";
 import { useEffect, useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Button } from "@/components/ui/button";
-import { categories, products, formatPrice } from "@/data/products";
+import { categories, products } from "@/data/products";
 import { setMCPData } from "@/lib/mcpDataLayer";
-import heroFan from "@/assets/hero-fan.jpg";
 import heroAirfryer from "@/assets/hero-airfryer.jpg";
 import heroMixer from "@/assets/hero-mixer.jpg";
 
@@ -71,32 +70,9 @@ function HomePage() {
     <SiteLayout>
       {/* Hero */}
       <section id="hero" className="hero bg-gradient-hero">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center py-12 lg:py-20">
-          <div className="space-y-6 order-2 lg:order-1">
-            <span className="inline-flex items-center gap-2 rounded-full bg-background/60 backdrop-blur px-3 py-1 text-xs font-medium">
-              ✦ New season · 2025 collection
-            </span>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.95] text-balance">
-              2D rotation. <br />
-              <span className="italic text-brand-deep">Even airflow.</span>
-            </h1>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-md">
-              The RetroSpin pedestal fan blends vintage looks with serious cooling. 120° smooth rotation, 1300 RPM aluminium motor.
-            </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <Button asChild size="lg" className="rounded-full">
-                <Link to="/product/$slug" params={{ slug: "retrospin-pedestal-fan" }}>
-                  Shop now <ArrowRight className="ml-1 size-4" />
-                </Link>
-              </Button>
-              <div className="text-sm">
-                <div className="text-muted-foreground line-through">{formatPrice(12999)}</div>
-                <div className="text-2xl font-bold">{formatPrice(7999)}</div>
-              </div>
-            </div>
-          </div>
-          <div className="order-1 lg:order-2 relative">
-            <div className="swiper aspect-[4/5] rounded-3xl overflow-hidden shadow-soft">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
+          <div className="swiper rounded-3xl overflow-hidden shadow-soft bg-black/5">
+            <div className="aspect-[1880/720] w-full">
               <div
                 className="swiper-wrapper flex h-full transition-transform duration-700 ease-out"
                 style={{ transform: `translateX(-${activeHeroSlide * 100}%)` }}
@@ -111,7 +87,7 @@ function HomePage() {
                       <img
                         src={slide.image}
                         alt={slide.title}
-                        className="home-img hero-banner-image size-full object-cover"
+                        className="home-img hero-banner-image block size-full object-contain"
                         draggable={false}
                       />
                     </a>
