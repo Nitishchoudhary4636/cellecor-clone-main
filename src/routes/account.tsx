@@ -9,7 +9,7 @@ import { useStore } from "@/lib/store";
 import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/account")({
-  head: () => ({ meta: [{ title: "My account â€” Cellecor" }] }),
+  head: () => ({ meta: [{ title: "My account — Cellecor" }] }),
   component: AccountPage,
 });
 
@@ -71,7 +71,7 @@ function AccountPage() {
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <h1 className="font-display text-4xl font-bold">Hi, {user.name} ðŸ‘‹</h1>
+            <h1 className="font-display text-4xl font-bold">Hi, {user.name} 👋</h1>
             <p className="mt-1 text-muted-foreground">{user.email}</p>
           </div>
           <Button variant="outline" onClick={logout} className="rounded-full">

@@ -56,8 +56,8 @@ export function Footer() {
           />
         </div>
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row gap-4 justify-between text-xs text-muted-foreground">
-          <p>Â© {new Date().getFullYear()} Cellecor Gadgets Ltd. All rights reserved.</p>
-          <p>An inspired demo build â€” not affiliated with any real brand.</p>
+          <p>© {new Date().getFullYear()} Cellecor Gadgets Ltd. All rights reserved.</p>
+          <p>An inspired demo build — not affiliated with any real brand.</p>
         </div>
       </div>
     </footer>

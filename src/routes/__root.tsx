@@ -34,7 +34,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Cellecor â€” Smart Gadgets & Home Appliances" },
+      { title: "Cellecor — Smart Gadgets & Home Appliances" },
       { name: "description", content: "Cellecor makes everyday gadgets and appliances that look great on your shelf and last for years." },
     ],
     links: [{ rel: "stylesheet", href: appCss }],

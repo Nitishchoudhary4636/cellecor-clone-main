@@ -8,7 +8,7 @@ import { findProduct, formatPrice, products } from "@/data/products";
 import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/cart")({
-  head: () => ({ meta: [{ title: "Your cart â€” Cellecor" }, { name: "description", content: "Review the items in your shopping cart." }] }),
+  head: () => ({ meta: [{ title: "Your cart — Cellecor" }, { name: "description", content: "Review the items in your shopping cart." }] }),
   component: CartPage,
 });
 
@@ -109,7 +109,7 @@ function CartPage() {
               <div className="flex justify-between"><span className="text-muted-foreground">Subtotal</span><span>{formatPrice(cartTotal)}</span></div>
               <div className="flex justify-between"><span className="text-muted-foreground">Shipping</span><span>{shipping === 0 ? "Free" : formatPrice(shipping)}</span></div>
               {shipping === 0 && cartTotal > 0 && (
-                <p className="text-xs text-success">ðŸŽ‰ You qualify for free shipping!</p>
+                <p className="text-xs text-success">🎉 You qualify for free shipping!</p>
               )}
             </div>
             <div className="pt-4 border-t border-border flex justify-between font-semibold text-lg">
