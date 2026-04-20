@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Truck, ShieldCheck, RotateCcw } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Button } from "@/components/ui/button";
@@ -23,6 +23,29 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
+
+  const heroSlides = [
+    {
+      id: "retrospin",
+      href: "/product/retrospin-pedestal-fan",
+      title: "RetroSpin Pedestal Fan",
+      image: heroFan,
+    },
+    {
+      id: "airfryer",
+      href: "/collection/airfryers",
+      title: "Air Fryers",
+      image: heroAirfryer,
+    },
+    {
+      id: "mixer",
+      href: "/collection/mixers",
+      title: "Mixer Grinders",
+      image: heroMixer,
+    },
+  ];
+
   useEffect(() => {
     setMCPData({
       pageName: "Home",
@@ -30,6 +53,16 @@ function HomePage() {
       currency: "INR",
     });
   }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveHeroSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [heroSlides.length]);
 
   const bestsellers = products.filter((p) => p.bestseller).slice(0, 4);
   const dailyDeals = [...products].sort((a, b) => b.mrp - b.price - (a.mrp - a.price)).slice(0, 6);
@@ -63,8 +96,28 @@ function HomePage() {
             </div>
           </div>
           <div className="order-1 lg:order-2 relative">
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-soft">
-              <img src={heroFan} alt="RetroSpin Pedestal Fan" className="size-full object-cover" />
+            <div className="swiper aspect-[4/5] rounded-3xl overflow-hidden shadow-soft">
+              <div
+                className="swiper-wrapper flex h-full transition-transform duration-700 ease-out"
+                style={{ transform: `translateX(-${activeHeroSlide * 100}%)` }}
+              >
+                {heroSlides.map((slide) => (
+                  <div key={slide.id} className="swiper-slide min-w-full h-full">
+                    <a
+                      href={slide.href}
+                      title={slide.title}
+                      className="hero-banner-link cursor-pointer block h-full w-full"
+                    >
+                      <img
+                        src={slide.image}
+                        alt={slide.title}
+                        className="home-img hero-banner-image size-full object-cover"
+                        draggable={false}
+                      />
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -138,7 +191,11 @@ function HomePage() {
 
       {/* Editorial split */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-6">
-        <Link to="/category/kitchen" className="group relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-accent">
+        <Link
+          to="/category/$slug"
+          params={{ slug: "kitchen" }}
+          className="group relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-accent"
+        >
           <img src={heroAirfryer} alt="Air fryer" className="size-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" />
           <div className="absolute inset-0 p-8 flex flex-col justify-end">
             <p className="text-xs font-semibold uppercase tracking-wider text-white/80">Healthy cooking</p>
@@ -146,7 +203,11 @@ function HomePage() {
             <p className="text-white/80 text-sm mt-2 max-w-sm">Up to 90% less oil. 8 digital presets. One basket for the whole family.</p>
           </div>
         </Link>
-        <Link to="/category/kitchen" className="group relative aspect-[4/3] rounded-3xl overflow-hidden bg-sand">
+        <Link
+          to="/category/$slug"
+          params={{ slug: "kitchen" }}
+          className="group relative aspect-[4/3] rounded-3xl overflow-hidden bg-sand"
+        >
           <img src={heroMixer} alt="Mixer grinder" className="size-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" />
           <div className="absolute inset-0 p-8 flex flex-col justify-end">
             <p className="text-xs font-semibold uppercase tracking-wider">Kitchen workhorses</p>
