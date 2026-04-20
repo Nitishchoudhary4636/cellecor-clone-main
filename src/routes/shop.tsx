@@ -9,9 +9,9 @@ import { setMCPData } from "@/lib/mcpDataLayer";
 export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
-      { title: "Shop all products â€” Cellecor" },
+      { title: "Shop all products — Cellecor" },
       { name: "description", content: "Browse the full Cellecor catalogue: smartwatches, air fryers, mixers, fans and more." },
-      { property: "og:title", content: "Shop all products â€” Cellecor" },
+      { property: "og:title", content: "Shop all products — Cellecor" },
     ],
   }),
   component: ShopPage,
@@ -85,7 +85,7 @@ function ShopPage() {
 
           <div className="flex-1">
             <div className="flex flex-col sm:flex-row gap-3 mb-6">
-              <Input placeholder="Search productsâ€¦" value={q} onChange={(e) => setQ(e.target.value)} className="max-w-sm" />
+              <Input placeholder="Search products…" value={q} onChange={(e) => setQ(e.target.value)} className="max-w-sm" />
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value as typeof sort)}

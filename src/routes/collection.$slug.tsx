@@ -13,7 +13,7 @@ export const Route = createFileRoute("/collection/$slug")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: loaderData ? `${loaderData.cat.name} â€” Cellecor` : "Collection â€” Cellecor" },
+      { title: loaderData ? `${loaderData.cat.name} — Cellecor` : "Collection — Cellecor" },
       { name: "description", content: loaderData ? `Shop ${loaderData.cat.name} from Cellecor.` : "" },
     ],
   }),

@@ -6,9 +6,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export const Route = createFileRoute("/support")({
   head: () => ({
     meta: [
-      { title: "Support & Warranty â€” Cellecor" },
+      { title: "Support & Warranty — Cellecor" },
       { name: "description", content: "Register your product, file a warranty claim, or browse FAQs." },
-      { property: "og:title", content: "Support & Warranty â€” Cellecor" },
+      { property: "og:title", content: "Support & Warranty — Cellecor" },
     ],
   }),
   component: SupportPage,
@@ -24,7 +24,7 @@ function SupportPage() {
 
   const faqs = [
     { q: "What is the warranty on Cellecor products?", a: "All Cellecor appliances come with a standard 2-year manufacturer warranty. Smartwatches and TWS earbuds come with a 1-year warranty." },
-    { q: "How long does shipping take?", a: "Most orders are delivered within 3â€“5 business days across India. Metro cities usually receive orders within 48 hours." },
+    { q: "How long does shipping take?", a: "Most orders are delivered within 3–5 business days across India. Metro cities usually receive orders within 48 hours." },
     { q: "Can I return a product?", a: "Yes, you can return any product within 7 days of delivery if it's unused and in its original packaging." },
     { q: "How do I track my order?", a: "After placing your order, you'll receive a tracking link via SMS and email. You can also view it in 'My orders'." },
     { q: "Do you ship internationally?", a: "Currently we only ship within India. International shipping is coming soon." },
@@ -35,7 +35,7 @@ function SupportPage() {
       <section className="bg-gradient-hero">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
           <h1 className="font-display text-5xl font-bold">Support & warranty</h1>
-          <p className="mt-3 text-muted-foreground max-w-xl">We're here to help â€” file a warranty claim, browse FAQs, or get in touch with our team.</p>
+          <p className="mt-3 text-muted-foreground max-w-xl">We're here to help — file a warranty claim, browse FAQs, or get in touch with our team.</p>
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">

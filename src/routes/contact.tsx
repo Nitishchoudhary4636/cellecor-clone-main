@@ -12,7 +12,7 @@ import { setMCPData } from "@/lib/mcpDataLayer";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact us â€” Cellecor" },
+      { title: "Contact us — Cellecor" },
       { name: "description", content: "Get in touch with the Cellecor team. We typically reply within one business day." },
       { property: "og:title", content: "Contact Cellecor" },
     ],
@@ -65,7 +65,7 @@ function ContactPage() {
             <input id="chkOffersChecked" type="checkbox" />
             Receive offers and product updates
           </label>
-          <Button type="submit" size="lg" className="w-full rounded-full">{sent ? "Message sent âœ“" : "Send message"}</Button>
+          <Button type="submit" size="lg" className="w-full rounded-full">{sent ? "Message sent ✓" : "Send message"}</Button>
         </form>
       </section>
     </SiteLayout>

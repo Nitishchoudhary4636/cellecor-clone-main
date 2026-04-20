@@ -8,7 +8,7 @@ import { useStore } from "@/lib/store";
 import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/signup")({
-  head: () => ({ meta: [{ title: "Create account â€” Cellecor" }] }),
+  head: () => ({ meta: [{ title: "Create account — Cellecor" }] }),
   component: SignupPage,
 });
 

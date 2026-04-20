@@ -17,9 +17,9 @@ export const Route = createFileRoute("/product/$slug")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: loaderData ? `${loaderData.product.name} â€” Cellecor` : "Product â€” Cellecor" },
+      { title: loaderData ? `${loaderData.product.name} — Cellecor` : "Product — Cellecor" },
       { name: "description", content: loaderData?.product.shortDescription ?? "" },
-      { property: "og:title", content: loaderData ? `${loaderData.product.name} â€” Cellecor` : "Product â€” Cellecor" },
+      { property: "og:title", content: loaderData ? `${loaderData.product.name} — Cellecor` : "Product — Cellecor" },
       { property: "og:description", content: loaderData?.product.shortDescription ?? "" },
       { property: "og:image", content: loaderData?.product.image ?? "" },
     ],
@@ -93,7 +93,7 @@ function ProductPage() {
                 <Star key={i} className={`size-4 ${i < Math.round(product.rating) ? "fill-brand text-brand" : "text-muted-foreground/30"}`} />
               ))}
             </div>
-            <span className="text-muted-foreground">{product.rating} Â· {product.reviews} reviews</span>
+            <span className="text-muted-foreground">{product.rating} · {product.reviews} reviews</span>
           </div>
 
           <div className="flex items-baseline gap-3">
@@ -140,7 +140,7 @@ function ProductPage() {
               className="rounded-full flex-1 sm:flex-none sm:px-10 btn-large"
               onClick={() => {
                 addToCart(product.id, qty);
-                toast.success(`Added ${qty} Ã— ${product.name} to cart`);
+                toast.success(`Added ${qty} × ${product.name} to cart`);
               }}
             >
               Add to cart
@@ -156,7 +156,7 @@ function ProductPage() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border">
-            <div className="flex items-center gap-2 text-sm"><Truck className="size-4 text-brand" /> Free shipping over â‚¹999</div>
+            <div className="flex items-center gap-2 text-sm"><Truck className="size-4 text-brand" /> Free shipping over ₹999</div>
             <div className="flex items-center gap-2 text-sm"><ShieldCheck className="size-4 text-brand" /> 2-year warranty</div>
           </div>
 
@@ -164,7 +164,7 @@ function ProductPage() {
             <h3 className="font-semibold mb-3">Key features</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               {product.features.map((f: string) => (
-                <li key={f} className="flex gap-2"><span className="text-brand">â€¢</span>{f}</li>
+                <li key={f} className="flex gap-2"><span className="text-brand">•</span>{f}</li>
               ))}
             </ul>
           </div>

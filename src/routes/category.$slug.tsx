@@ -15,9 +15,9 @@ export const Route = createFileRoute("/category/$slug")({
     const s = loaderData ? sections[loaderData.slug as SectionSlug] : null;
     return {
       meta: [
-        { title: s ? `${s.label} â€” Cellecor` : "Category â€” Cellecor" },
+        { title: s ? `${s.label} — Cellecor` : "Category — Cellecor" },
         { name: "description", content: s?.description ?? "" },
-        { property: "og:title", content: s ? `${s.label} â€” Cellecor` : "Category â€” Cellecor" },
+        { property: "og:title", content: s ? `${s.label} — Cellecor` : "Category — Cellecor" },
       ],
     };
   },

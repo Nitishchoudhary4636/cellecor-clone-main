@@ -5,9 +5,9 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 export const Route = createFileRoute("/investors")({
   head: () => ({
     meta: [
-      { title: "Investor relations â€” Cellecor" },
+      { title: "Investor relations — Cellecor" },
       { name: "description", content: "Cellecor investor information, annual reports, and financial highlights." },
-      { property: "og:title", content: "Investor relations â€” Cellecor" },
+      { property: "og:title", content: "Investor relations — Cellecor" },
     ],
   }),
   component: InvestorsPage,
@@ -29,7 +29,7 @@ function InvestorsPage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid sm:grid-cols-3 gap-6 mb-12">
           {[
-            { label: "Revenue FY24", value: "â‚¹284 Cr", delta: "+62% YoY" },
+            { label: "Revenue FY24", value: "₹284 Cr", delta: "+62% YoY" },
             { label: "EBITDA margin", value: "11.2%", delta: "+180 bps" },
             { label: "Active SKUs", value: "120+", delta: "32 new in FY24" },
           ].map((m) => (
@@ -46,9 +46,9 @@ function InvestorsPage() {
         <h2 className="font-display text-3xl font-bold mb-6">Reports & filings</h2>
         <div className="space-y-2">
           {[
-            "Annual Report FY 2023â€“24",
-            "Q4 FY24 â€” Investor Presentation",
-            "Q3 FY24 â€” Earnings Release",
+            "Annual Report FY 2023–24",
+            "Q4 FY24 — Investor Presentation",
+            "Q3 FY24 — Earnings Release",
             "Code of Conduct",
             "Insider Trading Policy",
           ].map((t) => (

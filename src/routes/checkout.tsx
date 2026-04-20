@@ -10,7 +10,7 @@ import { formatPrice, products } from "@/data/products";
 import { setMCPData } from "@/lib/mcpDataLayer";
 
 export const Route = createFileRoute("/checkout")({
-  head: () => ({ meta: [{ title: "Checkout â€” Cellecor" }] }),
+  head: () => ({ meta: [{ title: "Checkout — Cellecor" }] }),
   component: CheckoutPage,
 });
 
@@ -112,8 +112,8 @@ function CheckoutPage() {
 
             <fieldset className="space-y-3">
               <legend className="font-semibold text-lg mb-2">Payment</legend>
-              <p className="text-sm text-muted-foreground">This is a demo store â€” no payment will be processed.</p>
-              <div className="rounded-xl border border-border p-4 text-sm">ðŸ’³ Cash on Delivery (demo)</div>
+              <p className="text-sm text-muted-foreground">This is a demo store — no payment will be processed.</p>
+              <div className="rounded-xl border border-border p-4 text-sm">💳 Cash on Delivery (demo)</div>
             </fieldset>
           </div>
 
