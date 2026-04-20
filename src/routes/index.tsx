@@ -41,7 +41,7 @@ function HomePage() {
       id: "mixer",
       href: "/collection/mixers",
       title: "Mixer Grinders",
-      image: heroMixer,
+      image: "https://cellecor.com/cdn/shop/files/04_jpg.jpg?v=1773826849&width=2000",
     },
   ];
 
