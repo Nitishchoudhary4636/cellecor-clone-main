@@ -30,13 +30,13 @@ function HomePage() {
       id: "retrospin",
       href: "/product/retrospin-pedestal-fan",
       title: "RetroSpin Pedestal Fan",
-      image: heroFan,
+      image: "https://cellecor.com/cdn/shop/files/banner_-_2_jpg.jpg?v=1775806295&width=1880",
     },
     {
       id: "airfryer",
       href: "/collection/airfryers",
       title: "Air Fryers",
-      image: heroAirfryer,
+      image: "https://cellecor.com/cdn/shop/files/banner_-_3_jpg.jpg?v=1775806303&width=1880",
     },
     {
       id: "mixer",
